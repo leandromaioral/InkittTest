@@ -20,5 +20,6 @@ describe Answer, type: :model do
 
   describe 'relationships' do
     it { is_expected.to belong_to(:question) }
+    it { is_expected.to have_many(:answer_sheet_choices) }
   end
 end

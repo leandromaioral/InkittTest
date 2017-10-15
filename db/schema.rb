@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014171725) do
+ActiveRecord::Schema.define(version: 20171014214552) do
+
+  create_table "answer_sheet_choices", force: :cascade do |t|
+    t.integer "answer_sheet_id"
+    t.integer "question_id"
+    t.integer "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_answer_sheet_choices_on_answer_id"
+    t.index ["answer_sheet_id"], name: "index_answer_sheet_choices_on_answer_sheet_id"
+    t.index ["question_id"], name: "index_answer_sheet_choices_on_question_id"
+  end
+
+  create_table "answer_sheets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text "text"

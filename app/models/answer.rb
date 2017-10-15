@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :question
+  has_many :answer_sheet_choices
 
   with_options presence: true do
     validates :text
