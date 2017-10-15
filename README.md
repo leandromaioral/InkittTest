@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Quiz game for **Inkitt**.
 
-Things you may want to cover:
+## Setup the project
 
-* Ruby version
+1. `$ git clone <REPOSITORY_URL> InkittTest` - Clone the project
+2. `$ cd InkittTest`
 
-* System dependencies
+## Setup RVM
 
-* Configuration
+1. `$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB`
+2. `\curl -sSL https://get.rvm.io | bash -s stable`
+3. `rvm install ruby-2.4.1`
+3. `rvm 2.4.1@inkitt-test`
 
-* Database creation
+## Setup Bundler
 
-* Database initialization
+1. `gem install bundler`
+2. `bundle install`
 
-* How to run the test suite
+## Database creation
+`$ bundle exec rails db:setup`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Seeding data
+`$ bundle exec rails db:seed`
 
-* Deployment instructions
+## Running the project
+1. `$ bundle exec rails server`
+2. Open the browser at url: http://localhost:3000
 
-* ...
+## Running the test suite
+  `$ bundle exec rspec`
