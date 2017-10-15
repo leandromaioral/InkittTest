@@ -1,0 +1,26 @@
+<div class="question-and-answers">
+  <h1 class="question-text">
+    <%= question.text %>
+  </h1>
+
+  <ul class="list-unstyled answers-list">
+    <% question.answers.each do |answer| %>
+      <%= form_for answer_sheet, url: answer_sheets_path do |as_f| %>
+        <% if question.next %>
+          <%= hidden_field_tag 'next_question_url', question_path(question.next) %>
+        <% end %>
+
+        <%= as_f.fields_for :answer_sheet_choices do |asc_f| %>
+          <% next if asc_f.object.persisted? %>
+          
+          <%= asc_f.hidden_field :question_id, value: question.id %>
+          <%= asc_f.hidden_field :answer_id, value: answer.id %>
+        <% end %>
+
+        <li class="answers-list__answer">
+          <%= as_f.submit answer.text, class: 'btn btn-default btn-block' %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

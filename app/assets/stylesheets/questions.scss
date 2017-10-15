@@ -1,0 +1,37 @@
+$success: rgb(9, 177, 36);
+$default: rgb(226, 226, 226);
+$white: rgb(255, 255, 255);
+
+.question-and-answers {
+  margin-top: 30%;
+}
+
+.question-text {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.answers-list {
+  .answers-list__answer {
+    margin: 10px;
+  }
+
+  .answers-list__answer__resume {
+    background-color: $default;
+    padding: 10px;
+  }
+
+  .answers-list__answer__resume--correct {
+    background-color: $success;
+    color: $white;
+
+    .answers-list__answer__resume__bagde {
+      background-color: $white;
+      color: $success;
+    }
+  }
+}
+
+.question-and-answers-list {
+  margin-top: 30px;
+}

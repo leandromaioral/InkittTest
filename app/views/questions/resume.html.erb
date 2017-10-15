@@ -1,0 +1,30 @@
+<% @questions.each do |question| %>
+  <div class="question-and-answers-list">
+    <h2 class="question-text">
+      <%= question.text %>
+    </h1>
+
+    <ul class="answers-list">
+      <% question.answers.each do |answer| %>
+        <li class="answers-list__answer">
+          <div class="answers-list__answer__resume <%= answer.correct? ? 'answers-list__answer__resume--correct' : '' %>">
+            <span class="badge answers-list__answer__resume__bagde">
+              <%= @answer_sheet_choices.by_answer(answer).count %>
+            </span>
+            
+            <%= answer.text %>
+
+            <% if @answer_sheet.answer_sheet_choices.find_by(answer: answer) %>
+              <div class="pull-right">
+                <span class="label label-default">
+                  <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
+                  You chose this
+                </span>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
